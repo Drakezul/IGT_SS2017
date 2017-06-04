@@ -1,4 +1,4 @@
-package igt.parsing;
+package parsing;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,12 +21,12 @@ public class BPMNParser {
 
 	public List<String> getBPMNActivities() throws SAXException, IOException, ParserConfigurationException {
 		Document doc = XMLParser.getNormalizedXMLDocument(this.filepath);
-		NodeList nodes = doc.getDocumentElement().getChildNodes();
+		NodeList nodes = doc.getElementsByTagName("task");
 
 		List<String> results = new ArrayList<String>();
 		for (int i = 0; i < nodes.getLength(); i++) {
 			Node currentNode = nodes.item(i);
-			if (currentNode.getNodeType() == Node.ELEMENT_NODE && currentNode.getNodeName().equals("task")) {
+			if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
 				results.add(currentNode.getAttributes().getNamedItem("name").getTextContent());
 			}
 		}

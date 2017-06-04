@@ -1,4 +1,4 @@
-package igt.parsing;
+package parsing;
 
 import java.io.File;
 import java.io.IOException;

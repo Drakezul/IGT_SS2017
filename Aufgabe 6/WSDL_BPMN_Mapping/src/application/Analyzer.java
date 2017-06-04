@@ -1,4 +1,4 @@
-package mapping;
+package application;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -7,29 +7,24 @@ import java.util.List;
 import java.util.Map;
 
 import javax.rmi.CORBA.Util;
+import javax.swing.plaf.synth.SynthSpinnerUI;
 
-import Util.StringUtil;
 import model.ServiceProposal;
+import util.StringUtil;
 
 public class Analyzer {
 
-	public List<ServiceProposal> getMatchingServices(String activityName, List<String> serviceNames,
-			double minMatchingDegree) {
+	public static List<ServiceProposal> getMatchingServices(String activityName, List<String> serviceNames,
+			int minMatchingDegree) {
 		List<ServiceProposal> matchingServiceProposals = new ArrayList<ServiceProposal>();
 		for (String serviceName : serviceNames) {
 			double similarity = StringUtil.calculateStringmatching(activityName, serviceName);
 
-			if (minMatchingDegree > 0.25) {
+			if ((similarity*100) > minMatchingDegree) {
 				ServiceProposal recommandation = new ServiceProposal(serviceName, similarity);
 				matchingServiceProposals.add(recommandation);
 			}
 		}
-		/*matchingServiceProposals.sort(new Comparator<ServiceProposal>() {
-			@Override
-			public int compare(ServiceProposal o1, ServiceProposal o2) {
-				return Double.compare(o2.matchingDegree, o1.matchingDegree);
-			}
-		});*/
 		return matchingServiceProposals;
 	}
 }
