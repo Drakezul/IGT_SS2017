@@ -12,7 +12,7 @@ import javax.swing.plaf.synth.SynthSpinnerUI;
 import model.ServiceProposal;
 import util.StringUtil;
 
-public class Analyzer {
+public class Matcher {
 
 	public static List<ServiceProposal> getMatchingServices(String activityName, List<String> serviceNames,
 			int minMatchingDegree) {

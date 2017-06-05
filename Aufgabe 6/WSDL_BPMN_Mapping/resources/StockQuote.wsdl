@@ -46,7 +46,8 @@
 	<wsdl:portType name="StockQuoteSoap">
 		<wsdl:operation name="GetQuote">
 			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Stock quote for
-				a company Symbol</wsdl:documentation>
+				a company Symbol
+			</wsdl:documentation>
 			<wsdl:input message="tns:GetQuoteSoapIn" />
 			<wsdl:output message="tns:GetQuoteSoapOut" />
 		</wsdl:operation>
@@ -54,7 +55,8 @@
 	<wsdl:portType name="StockQuoteHttpGet">
 		<wsdl:operation name="GetQuote">
 			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Stock quote for
-				a company Symbol</wsdl:documentation>
+				a company Symbol
+			</wsdl:documentation>
 			<wsdl:input message="tns:GetQuoteHttpGetIn" />
 			<wsdl:output message="tns:GetQuoteHttpGetOut" />
 		</wsdl:operation>
@@ -62,7 +64,8 @@
 	<wsdl:portType name="StockQuoteHttpPost">
 		<wsdl:operation name="GetQuote">
 			<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Stock quote for
-				a company Symbol</wsdl:documentation>
+				a company Symbol
+			</wsdl:documentation>
 			<wsdl:input message="tns:GetQuoteHttpPostIn" />
 			<wsdl:output message="tns:GetQuoteHttpPostOut" />
 		</wsdl:operation>
@@ -130,16 +133,13 @@
 		<wsdl:port name="StockQuoteHttpPost" binding="tns:StockQuoteHttpPost">
 			<http:address location="http://www.webservicex.com/stockquote.asmx" />
 		</wsdl:port>
+		<!-- Mocking of services starts here -->
 		<wsdl:port name="XRP StockQuoteHttpGet" binding="tns:StockQuoteHttpGet">
-			<http:address location="http://www.webservicex.com/stockquote.asmx" />
-		</wsdl:port>
-		<wsdl:port name="ETH StockQuoteHttpGet" binding="tns:StockQuoteHttpGet">
 			<http:address location="http://www.webservicex.com/stockquote.asmx" />
 		</wsdl:port>
 		<wsdl:port name="BTC StockQuoteHttpGet" binding="tns:StockQuoteHttpGet">
 			<http:address location="http://www.webservicex.com/stockquote.asmx" />
 		</wsdl:port>
-		<!-- Mocking of services starts here -->
 		<wsdl:port name="Buy XRP" binding="tns:StockQuoteHttpPost">
 			<http:address location="http://www.webservicex.com/stockquote.asmx" />
 		</wsdl:port>

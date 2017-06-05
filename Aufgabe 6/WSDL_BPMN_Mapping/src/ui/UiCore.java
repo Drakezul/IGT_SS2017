@@ -32,7 +32,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
-import application.Analyzer;
+import application.Matcher;
 import model.ServiceProposal;
 import model.StockQuote_Testdata;
 import parsing.BPMNParser;
@@ -130,7 +130,7 @@ public class UiCore extends JFrame {
 			activityButton.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-					List<ServiceProposal> mappingResults = Analyzer.getMatchingServices(activity, serviceNames,
+					List<ServiceProposal> mappingResults = Matcher.getMatchingServices(activity, serviceNames,
 							(int) inputField.getValue());
 					serviceDisplayPanel.removeAll();
 					mappingResults.sort(new Comparator<ServiceProposal>() {
